@@ -40,13 +40,15 @@ const {
   jsonLd,
 } = Astro.props;
 
-const canonical = import.meta.env.DEV
+const isLocalDev = import.meta.env.DEV;
+const canonical = isLocalDev
   ? new URL(Astro.url.pathname, Astro.url.origin).href
   : canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
-const robotsContent = noindex
-  ? 'noindex, nofollow'
-  : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const robotsContent =
+  noindex || isLocalDev
+    ? 'noindex, nofollow'
+    : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 ---
 
 <!doctype html>

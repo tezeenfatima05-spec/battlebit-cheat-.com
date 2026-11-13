@@ -37,4 +37,12 @@ Do **not** point hosting at the repo root or `public/` only — CSS and layout w
 | GitHub Pages | use `.github/workflows/deploy-static.yml` | artifact `dist` |
 | Node (Railway, etc.) | `npm run build` then `npm run start` | serves `dist/` |
 
-Local production preview: `npm run build && npm run preview`
+Local development (project-specific URL — not the live domain):
+
+```bash
+npm run dev
+```
+
+Open **http://127.0.0.1:5477/** (not port 4321/3000 used by other sites). Pages are `noindex` in dev.
+
+After build: `npm run preview` (same **5477**) or `npm run start` (serves `dist/` on **http://127.0.0.1:5478/**).

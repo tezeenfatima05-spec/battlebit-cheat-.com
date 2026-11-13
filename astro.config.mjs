@@ -2,13 +2,14 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
+import { DEV_HOST, DEV_PORT } from './scripts/dev-server.mjs';
 
 export default defineConfig({
   output: 'static',
   site: 'https://battlebitcheat.com',
   server: {
-    host: '127.0.0.1',
-    port: 4321,
+    host: DEV_HOST,
+    port: DEV_PORT,
   },
   trailingSlash: 'always',
   redirects: {

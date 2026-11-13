@@ -4,10 +4,11 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
+import { LOCAL_PREVIEW_PORT } from './dev-server.mjs';
 
 const CANONICAL_HOST = 'battlebitcheat.com';
 const distDir = path.resolve('dist');
-const port = Number(process.env.PORT) || 3000;
+const port = Number(process.env.PORT) || LOCAL_PREVIEW_PORT;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
