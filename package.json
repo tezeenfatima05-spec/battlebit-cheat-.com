@@ -12,6 +12,7 @@
     "validate:sitemap:live": "node scripts/validate-sitemap.mjs --live",
     "preview": "astro preview --host 127.0.0.1 --port 5477",
     "start": "node scripts/serve.mjs",
+    "deploy:pages": "node scripts/cf-pages-deploy.mjs",
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs"
   },

@@ -37,6 +37,19 @@ Do **not** point hosting at the repo root or `public/` only — CSS and layout w
 | GitHub Pages | use `.github/workflows/deploy-static.yml` | artifact `dist` |
 | Node (Railway, etc.) | `npm run build` then `npm run start` | serves `dist/` |
 
+### Cloudflare Pages (fix `wrangler deploy` / missing entry-point)
+
+The **build is fine**; the failure is the **deploy command**.
+
+1. **Workers & Pages → your project → Settings → Builds**
+2. **Build command:** `npm run build`
+3. **Build output directory:** `dist`
+4. **Deploy command:** leave **empty** (delete `npx wrangler deploy`)
+
+`wrangler deploy` is for **Workers**, not this static site. With output `dist`, Pages uploads the build automatically.
+
+If your plan **requires** a deploy command, use `npm run deploy:pages` (runs `wrangler pages deploy dist`), not `wrangler deploy`.
+
 Local development (project-specific URL — not the live domain):
 
 ```bash
