@@ -1,5 +1,9 @@
-# Cloudflare Pages (static Astro build). Do NOT run `wrangler deploy` — that targets Workers.
-# In the dashboard: Build output directory = dist, Deploy command = empty (or `npm run deploy:pages`).
+# Cloudflare Pages — static Astro output in dist/
 name = "battlebit-cheat"
 compatibility_date = "2024-09-01"
 pages_build_output_dir = "dist"
+
+# If the dashboard still runs `npx wrangler deploy`, Wrangler needs an assets directory.
+# Prefer: Deploy command = empty OR `npx wrangler pages deploy` OR `npm run deploy:pages`
+[assets]
+directory = "./dist"

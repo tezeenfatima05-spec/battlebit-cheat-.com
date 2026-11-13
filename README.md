@@ -44,11 +44,11 @@ The **build is fine**; the failure is the **deploy command**.
 1. **Workers & Pages → your project → Settings → Builds**
 2. **Build command:** `npm run build`
 3. **Build output directory:** `dist`
-4. **Deploy command:** leave **empty** (delete `npx wrangler deploy`)
+4. **Deploy command:** leave **empty**, or set **`npx wrangler pages deploy`** — **not** `npx wrangler deploy`
 
-`wrangler deploy` is for **Workers**, not this static site. With output `dist`, Pages uploads the build automatically.
+See **[cloudflare-pages.md](./cloudflare-pages.md)** for copy-paste values.
 
-If your plan **requires** a deploy command, use `npm run deploy:pages` (runs `wrangler pages deploy dist`), not `wrangler deploy`.
+`wrangler deploy` is for Workers with a script entry point. This repo is static HTML in `dist/`. The dashboard “Deploy command” must be cleared or changed — that field is **not** stored in git.
 
 Local development (project-specific URL — not the live domain):
 
