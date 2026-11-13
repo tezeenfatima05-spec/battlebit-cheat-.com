@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# unrelated static dump — never deploy as site root
+/index.html
 # generated types
 .astro/
 

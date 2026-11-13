@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
+  output: 'static',
   site: 'https://battlebitcheat.com',
   server: {
     host: '127.0.0.1',
